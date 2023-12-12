@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import PasswordInput from './components/PasswordInput';
+import PasswordValidator from './components/PasswordValidator';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    return (
+        <div>
+            <PasswordInput 
+                password={password} 
+                confirmPassword={confirmPassword} 
+                setPassword={setPassword} 
+                setConfirmPassword={setConfirmPassword}
+            />
+            <PasswordValidator 
+                password={password} 
+                confirmPassword={confirmPassword}
+            />
+        </div>
+    );
+};
 
 export default App;
